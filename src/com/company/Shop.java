@@ -8,6 +8,7 @@ public class Shop implements  IShop{
     //could have stored products in a hashmap <Category,Product>,but different products can correspons to the same
     //category,so i used arraylist
     private  ArrayList<Product> products = new ArrayList<Product>();
+    private ArrayList<Product> boughtproducts = new ArrayList<>();
     private static volatile Shop instance = new Shop();
     //private constructor.
     private Shop(){
@@ -39,6 +40,9 @@ public class Shop implements  IShop{
 
     public ArrayList<Product> getProducts() {
         return products;
+    }
+    public ArrayList<Product> getBoughtproducts() {
+        return boughtproducts;
     }
 
     @Override

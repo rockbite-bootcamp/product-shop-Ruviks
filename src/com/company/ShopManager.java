@@ -31,6 +31,7 @@ public class ShopManager implements  IShopManager {
             //and we remove from shop
             shop.removeProduct(product);
         }
+        shop.getBoughtproducts().add(product);
 
     }
 
@@ -57,6 +58,34 @@ public class ShopManager implements  IShopManager {
             inventoryManager.addItem(type,payload.get(type).getCount());
             //and we remove from shop
             shop.removeProduct(product);
+        }
+
+    }
+
+    @Override
+    public void returnProductbyID(int ID) {
+        Shop shop = Shop.getInstance();
+
+    }
+
+    public void returnProduct(Product product) throws Exception {
+        Shop shop = Shop.getInstance();
+        if(shop.getBoughtproducts().contains(product))
+        {
+            InventoryManager inventoryManager =user.getInventoryManager();
+            HashMap<ItemType,ItemStack> inventory= inventoryManager.getInventory();
+            //add user
+            HashMap<ItemType, ItemStack> cost= product.getCost().getPayload();
+            HashMap<ItemType, ItemStack> payload= product.getPayload().getPayload();
+            for (ItemType type : cost.keySet()){
+                inventoryManager.addItem(type,cost.get(type).getCount());
+            }
+            //Now lets remove the payload from user inventory
+            for (ItemType type : payload.keySet()){
+                inventoryManager.removeItem(type,payload.get(type).getCount());
+                //and we add the product back again
+                shop.addProduct(product);
+            }
         }
 
     }
