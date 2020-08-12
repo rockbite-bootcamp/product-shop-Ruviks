@@ -2,11 +2,14 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Observable;
 
-public class ShopManager implements  IShopManager {
+public class ShopManager extends Observable implements  IShopManager {
     User user;
     public ShopManager(User user){
         this.user=user;
+        //award system for multiple users
+        this.addObserver(AwardSystem.getInstance());
     }
 
     @Override
@@ -32,6 +35,10 @@ public class ShopManager implements  IShopManager {
             shop.removeProduct(product);
         }
         shop.getBoughtproducts().add(product);
+        user.incrementBuyCount();
+        setChanged();
+        notifyObservers();
+
 
     }
 

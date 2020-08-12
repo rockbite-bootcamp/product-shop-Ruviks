@@ -83,6 +83,7 @@ public class Main {
         //so we will obtain commands with given parameters
         CommandPool commandPool = new CommandPool();
         CommandManager commandManager = new CommandManager();
+
         try {
             product=Shop.getInstance().getProductbyID(0);
             commandPool.setBuyCommand(user,product);
@@ -112,5 +113,7 @@ public class Main {
             e.printStackTrace();
         }
         System.out.println(user.getInventoryManager().printInventory());
+
+
     }
 }

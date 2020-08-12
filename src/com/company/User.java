@@ -3,6 +3,8 @@ public class User implements  IUser {
         private long id;
         private  String name;
         private InventoryManager inventoryManager= new InventoryManager();
+        private int cash;
+        private int buyCount=0;
         private  ShopManager shopManager;
 
     public User(){
@@ -28,6 +30,8 @@ public class User implements  IUser {
         this.name=username;
         return this.name;
     }
+    public int getCash(){return this.cash;}
+    public  void setCash(int cash){this.cash=cash;}
 
 
     @Override
@@ -38,4 +42,12 @@ public class User implements  IUser {
         return this.shopManager;
     }
 
+    public int getBuyCount() {
+        return buyCount;
+    }
+
+    public void setBuyCount(int buyCount) {
+        this.buyCount = buyCount;
+    }
+    public void incrementBuyCount(){this.buyCount++;}
 }

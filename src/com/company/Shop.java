@@ -1,9 +1,10 @@
 package com.company;
 import java.util.ArrayList;
+import java.util.Observable;
 import java.util.stream.Collectors;
 
 //ideally should use Singleton pattern
-public class Shop implements  IShop{
+public class Shop  implements  IShop {
     private int index=0;
     //could have stored products in a hashmap <Category,Product>,but different products can correspons to the same
     //category,so i used arraylist
