@@ -1,7 +1,5 @@
 package com.company.Commands;
 
-import com.company.Pool.Pool;
-
 import java.util.ArrayList;
 
 public class CommandManager {
@@ -22,7 +20,7 @@ public class CommandManager {
     }
 
     public void undo() throws Exception {
-        if(cursor == 0) return;
+        if (cursor == 0) return;
 
         Command command = history.get(cursor - 1);
         command.undo();
@@ -31,7 +29,7 @@ public class CommandManager {
     }
 
     public void redo() throws Exception {
-        if(cursor > history.size() - 1) return;
+        if (cursor > history.size() - 1) return;
 
         Command command = history.get(cursor);
         command.execute();

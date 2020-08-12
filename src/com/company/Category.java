@@ -5,7 +5,10 @@ public class Category {
     //it might contain more than one "category" for example
     //but in this case i will just use one category name
     private String name;
-    public Category(String name){this.name=name;}
+
+    public Category(String name) {
+        this.name = name;
+    }
 
     public String getName() {
         return this.name;

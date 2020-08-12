@@ -1,18 +1,19 @@
 package com.company;
+
 import java.util.ArrayList;
-import java.util.Observable;
 import java.util.stream.Collectors;
 
 //ideally should use Singleton pattern
-public class Shop  implements  IShop {
-    private int index=0;
+public class Shop implements IShop {
+    private int index = 0;
     //could have stored products in a hashmap <Category,Product>,but different products can correspons to the same
     //category,so i used arraylist
-    private  ArrayList<Product> products = new ArrayList<Product>();
+    private ArrayList<Product> products = new ArrayList<Product>();
     private ArrayList<Product> boughtproducts = new ArrayList<>();
     private static volatile Shop instance = new Shop();
+
     //private constructor.
-    private Shop(){
+    private Shop() {
 
     }
 
@@ -23,15 +24,16 @@ public class Shop  implements  IShop {
 
     @Override
     public void addProduct(Product product) {
-        if(this.products.contains(product)) return;
-        product.setID(index);index++;
+        if (this.products.contains(product)) return;
+        product.setID(index);
+        index++;
         this.products.add(product);
 
     }
 
     @Override
     public void removeProduct(Product product) {
-        if(this.products.contains(product)) this.products.remove(product);
+        if (this.products.contains(product)) this.products.remove(product);
     }
 
     @Override
@@ -42,6 +44,7 @@ public class Shop  implements  IShop {
     public ArrayList<Product> getProducts() {
         return products;
     }
+
     public ArrayList<Product> getBoughtproducts() {
         return boughtproducts;
     }

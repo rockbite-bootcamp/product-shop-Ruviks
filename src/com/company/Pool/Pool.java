@@ -14,7 +14,7 @@ public abstract class Pool<T extends Poolable> {
 
     protected abstract T newObject();
 
-    public T obtain () {
+    public T obtain() {
         if (freeObjects.isEmpty()) {
             T object = newObject();
             freeObjects.add(object);
@@ -26,7 +26,7 @@ public abstract class Pool<T extends Poolable> {
         return object;
     }
 
-    public void free (T object) {
+    public void free(T object) {
         usedObjects.remove(object);
         freeObjects.add(object);
 

@@ -6,10 +6,12 @@ import com.company.User;
 public class BuyCommand implements Command {
     User user;
     Product product;
-    public BuyCommand(User user, Product product){
-        this.user=user;
-        this.product=product;
+
+    public BuyCommand(User user, Product product) {
+        this.user = user;
+        this.product = product;
     }
+
     @Override
     public void execute() throws Exception {
         user.getShopManager().buy(product);
@@ -22,8 +24,8 @@ public class BuyCommand implements Command {
 
     @Override
     public void reset() {
-        this.user=null;
-        this.product=null;
+        this.user = null;
+        this.product = null;
 
     }
 }

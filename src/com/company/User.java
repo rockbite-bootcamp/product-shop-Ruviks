@@ -1,15 +1,17 @@
 package com.company;
-public class User implements  IUser {
-        private long id;
-        private  String name;
-        private InventoryManager inventoryManager= new InventoryManager();
-        private int cash;
-        private int buyCount=0;
-        private  ShopManager shopManager;
 
-    public User(){
-        shopManager= new ShopManager(this);
+public class User implements IUser {
+    private long id;
+    private String name;
+    private InventoryManager inventoryManager = new InventoryManager();
+    private int cash;
+    private int buyCount = 0;
+    private ShopManager shopManager;
+
+    public User() {
+        shopManager = new ShopManager(this);
     }
+
     @Override
     public long getId() {
         return this.id;
@@ -17,7 +19,7 @@ public class User implements  IUser {
 
     @Override
     public void setId(long id) {
-        this.id=id;
+        this.id = id;
     }
 
     @Override
@@ -27,18 +29,25 @@ public class User implements  IUser {
 
     @Override
     public String setName(String username) {
-        this.name=username;
+        this.name = username;
         return this.name;
     }
-    public int getCash(){return this.cash;}
-    public  void setCash(int cash){this.cash=cash;}
+
+    public int getCash() {
+        return this.cash;
+    }
+
+    public void setCash(int cash) {
+        this.cash = cash;
+    }
 
 
     @Override
     public InventoryManager getInventoryManager() {
         return this.inventoryManager;
     }
-    public ShopManager getShopManager(){
+
+    public ShopManager getShopManager() {
         return this.shopManager;
     }
 
@@ -49,5 +58,8 @@ public class User implements  IUser {
     public void setBuyCount(int buyCount) {
         this.buyCount = buyCount;
     }
-    public void incrementBuyCount(){this.buyCount++;}
+
+    public void incrementBuyCount() {
+        this.buyCount++;
+    }
 }
