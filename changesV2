@@ -1,0 +1,9 @@
+I have used Command Pattern, and pooling to handle the commands,
+There are two main ways of implementing history.
+1)We can save the state of the program at every action(is not memory efficient)
+2)We can store every action,then generate the according state (memory efficient)
+Because of the nature of our Command Handling, we have also used pooling to avoid creating many new objects.
+I have done everything without refactoring my code for too much, and it works, I have not handled the case
+However in my design i also considered that we hav many users, but in the task it does not matter actually,
+so i did not handle the case of many users, there is only one user and one shop. It will be easy to expand my code
+ so it serves more than one user, but if we have more shops it will need a lot of refactoring.
