@@ -15,9 +15,10 @@ public class CommandPool extends Pool<Command> {
     }
 
     //we can set parameters of any command in here, and we then just obtain it from pool
-    public void setBuyCommand(User user, Product product) {
+    public Command setBuyCommand(User user, Product product) {
         this.user = user;
         this.product = product;
+        return this.obtain();
 
     }
 
